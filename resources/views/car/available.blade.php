@@ -11,7 +11,7 @@
                     <form id="availability-form" action="{{route('available-cars')}}" method="get">
                         @csrf
                         <div class="mb-3 mt-3">
-                            <label for="start_date">Start Date:</label>
+                            <label for="start_date">Date:</label>
                             <input type="date" class="form-control" id="start_date" name="start_date">
                         </div>
                         <!-- <div class="mb-3 mt-3">

@@ -19,7 +19,9 @@
                                 <th>Booking Date</th>
                                 <th>Booked By</th>
                                 <th>Status</th>
+                                @if(Auth::user()->role_id == 1)
                                 <th>Action</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -34,6 +36,7 @@
                                 <td>{{$value->start_date}}</td>
                                 <td>{{$value->user->name}}</td>
                                 <td>{{$value->booking_status}}</td>
+                                @if(Auth::user()->role_id == 1)
                                 <td>
                                     @if($value->booking_status == 'booked')
                                     <form action="{{route('booking.confirm', $value->id)}}" method="POST">
@@ -43,6 +46,7 @@
                                     </form>
                                     @endif
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

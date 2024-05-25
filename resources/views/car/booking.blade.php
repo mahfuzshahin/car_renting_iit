@@ -33,7 +33,7 @@
                     <form action="{{route('book.car', $id)}}" method="POST">
                         @csrf
                         <div class="mb-3 mt-3">
-                            <label for="start_date">Start Date:</label>
+                            <label for="start_date">Date:</label>
                             <input type="hidden" name="car_id" value="{{$book->id}}">
                             <input type="date" class="form-control" id="start_date" name="start_date"
                                 value="{{ old('start_date', $startDate) }}" readonly>
