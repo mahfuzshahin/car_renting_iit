@@ -34,8 +34,9 @@
                         @csrf
                         <div class="mb-3 mt-3">
                             <label for="start_date">Start Date:</label>
+                            <input type="hidden" name="car_id" value="{{$book->id}}">
                             <input type="date" class="form-control" id="start_date" name="start_date"
-                                value="{{ old('start_date', $startDate) }}">
+                                value="{{ old('start_date', $startDate) }}" readonly>
                         </div>
 
                         <button type="submit" class="btn btn-primary" id="book-car-btn">Book</button>

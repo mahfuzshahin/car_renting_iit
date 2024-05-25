@@ -9,7 +9,12 @@ class CarController extends Controller
 {
     //
     public function new_car(){
-        return view('car.new_car');
+        if(Auth::user()->role_id == 1){
+            return view('car.new_car');
+        }else{
+            redirect()->route('home');
+        }
+        
     }
     public function store_car(Request $request){
         $data_insert = Car::create([
@@ -26,7 +31,11 @@ class CarController extends Controller
     }
 
     public function car_list(){
-        $cars = car::all();
-        return view('car.car_list',compact('cars'));
+        if(Auth::user()->role_id == 1){
+            $cars = car::all();
+            return view('car.car_list',compact('cars'));
+        }else{
+            redirect()->route('home');
+        }
     }
 }

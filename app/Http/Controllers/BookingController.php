@@ -48,7 +48,7 @@ class BookingController extends Controller
     public function book_car(Request $request, $id){
         $booking = Booking::create([
             'user_id' => Auth::user()->id,
-            'car_id' => 1,
+            'car_id' => $request->car_id,
             'start_date' => $request->start_date,
             'end_date' => $request->start_date,
             'booking_status' => 'booked',
@@ -57,8 +57,14 @@ class BookingController extends Controller
     }
 
     public function booking_list(){
-        $bookings = Booking::all();
-        return view('car.booking_list', compact('bookings'));
+        
+        if(Auth::user()->role_id == 1){
+            $bookings = Booking::all();
+            return view('car.booking_list', compact('bookings'));
+        }else{
+            $bookings = Booking::where('user_id', Auth::user()->id)->get();
+            return view('car.booking_list', compact('bookings'));
+        }
     }
     public function booking_confirm(Request $request, $id){
         $data = Booking::find($id);

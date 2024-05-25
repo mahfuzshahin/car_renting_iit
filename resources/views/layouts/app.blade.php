@@ -58,6 +58,22 @@
                         </li>
                         @endif
                         @else
+                        @if(Auth::user()->role_id == 1)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('new.car') }}">{{ __('Add Car') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('car.list') }}">{{ __('Car List') }}</a>
+                        </li>
+
+                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('available.car') }}">{{ __('Available Car') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('booking.list') }}">{{ __('Booking List') }}</a>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
