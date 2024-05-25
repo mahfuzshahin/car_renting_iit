@@ -22,7 +22,7 @@ class CarController extends Controller
             'seat_capacity' => $request->seat_capacity,
             'status' => 'available',
         ]);
-        return redirect()->route('new.car');
+        return redirect()->route('new.car')->with('success','Car added successfully');
     }
 
     public function car_list(){

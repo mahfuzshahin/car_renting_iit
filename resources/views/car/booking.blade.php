@@ -15,13 +15,11 @@
                         @csrf
                         <div class="mb-3 mt-3">
                             <label for="start_date">Start Date:</label>
-                            <input type="date" class="form-control" id="start_date" name="start_date">
+                            <input type="date" class="form-control" id="start_date" name="start_date"
+                                value="{{ old('start_date', $startDate) }}">
                         </div>
-                        <div class="mb-3 mt-3">
-                            <label for="end_date">End Date:</label>
-                            <input type="date" class="form-control" id="end_date" name="end_date">
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="book-car-btn">Submit</button>
+
+                        <button type="submit" class="btn btn-primary" id="book-car-btn">Book</button>
                     </form>
                 </div>
             </div>

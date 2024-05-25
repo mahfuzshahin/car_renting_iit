@@ -29,3 +29,5 @@ Route::get('/available-car', [App\Http\Controllers\BookingController::class, 'av
 Route::get('/show-available-car', [App\Http\Controllers\BookingController::class, 'show_available_car'])->name('available-cars');
 Route::get('/book/{id}', [App\Http\Controllers\BookingController::class, 'book'])->name('book');
 Route::post('/book/{id}', [App\Http\Controllers\BookingController::class, 'book_car'])->name('book.car');
+Route::get('/booking-list', [App\Http\Controllers\BookingController::class, 'booking_list'])->name('booking.list');
+Route::put('/booking-confirm/{id}', [App\Http\Controllers\BookingController::class, 'booking_confirm'])->name('booking.confirm');

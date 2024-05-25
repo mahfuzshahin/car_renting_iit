@@ -37,3 +37,19 @@
     </div>
 </div>
 @endsection
+@section('footerScript')
+@if(Session::has('success'))
+<script type="text/javascript">
+$(function() {
+    toastr.success("{{ Session::get('success') }}");
+})
+</script>
+@endif
+@if(Session::has('fail'))
+<script type="text/javascript">
+$(function() {
+    toastr.error("{{ Session::get('fail') }}");
+})
+</script>
+@endif
+@stop

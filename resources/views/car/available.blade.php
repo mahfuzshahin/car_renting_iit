@@ -14,10 +14,10 @@
                             <label for="start_date">Start Date:</label>
                             <input type="date" class="form-control" id="start_date" name="start_date">
                         </div>
-                        <div class="mb-3 mt-3">
+                        <!-- <div class="mb-3 mt-3">
                             <label for="end_date">End Date:</label>
                             <input type="date" class="form-control" id="end_date" name="end_date">
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-primary">Check Availability</button>
                     </form>
                     <div id="errors" style="color: red;"></div>
@@ -52,6 +52,7 @@ $(document).ready(function() {
                             '<button class="book-car-btn" data-car-id="' + car.id +
                             '">Book Now</button></li>';
                     });
+                    let date = $('#availability-form input[name="start_date"]').val();
                     carsListHtml += '</ul>';
                     $('#available-cars').html(carsListHtml);
 
@@ -59,7 +60,8 @@ $(document).ready(function() {
                     $('.book-car-btn').on('click', function() {
                         let carId = $(this).data('car-id');
                         console.log(carId);
-                        window.location.href = '/book/' + carId;
+                        window.location.href = '/book/' + carId + '?date=' +
+                            encodeURIComponent(date);;
                     });
                 } else {
                     // No available cars
