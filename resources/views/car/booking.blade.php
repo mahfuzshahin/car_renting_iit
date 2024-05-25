@@ -8,9 +8,28 @@
                 <div class="card-header">{{ __('Booking') }}</div>
 
                 <div class="card-body">
-                    <div>
-                        {{$book->model}}, {{$book->brand}}
-                    </div>
+                    <table>
+                        <tr>
+                            <th>Model:</th>
+                            <td>{{$book->model}}</td>
+                        </tr>
+                        <tr>
+                            <th>Brand:</th>
+                            <td>{{$book->brand}}</td>
+                        </tr>
+                        <tr>
+                            <th>Color:</th>
+                            <td>{{$book->color}}</td>
+                        </tr>
+                        <tr>
+                            <th>Driver:</th>
+                            <td>{{$book->driver}}</td>
+                        </tr>
+                        <tr>
+                            <th>Seat Capacity:</th>
+                            <td>{{$book->seat_capacity}}</td>
+                        </tr>
+                    </table>
                     <form action="{{route('book.car', $id)}}" method="POST">
                         @csrf
                         <div class="mb-3 mt-3">

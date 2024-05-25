@@ -46,14 +46,18 @@ $(document).ready(function() {
                 console.log(response);
                 let availableCars = response.data;
                 if (availableCars.length > 0) {
-                    let carsListHtml = '<h2>Available Cars</h2><ul>';
+                    let carsListHtml =
+                        '<h3>Available Car</h3><table class="table"><thead><tr><th>Model</th><th>Driver</th><th>Action</th></tr></thead><tbody>';
+
                     availableCars.forEach(function(car) {
-                        carsListHtml += '<li>' + car.model +
-                            '<button class="book-car-btn" data-car-id="' + car.id +
-                            '">Book Now</button></li>';
+                        carsListHtml += '<tr><td>' + car.model + '</td>' + '<td>' +
+                            car.driver + '</td>' +
+                            '<td><button class="btn btn-primary book-car-btn" data-car-id="' +
+                            car.id +
+                            '">Book Now</button></td></tr>';
                     });
                     let date = $('#availability-form input[name="start_date"]').val();
-                    carsListHtml += '</ul>';
+                    carsListHtml += '</tbody></table>';
                     $('#available-cars').html(carsListHtml);
 
                     // Bind event handlers to the buttons (if necessary)
